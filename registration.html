@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ElectroNova Hackathon 2026 | Team Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="Team registration page for IEEE EDS ElectroNova Hackathon 2026">
+  <meta name="author" content="IEEE EDS Chapter">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #eaf6fb, #f8fafc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 540px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, #00629B, #06b6d4);
+      color: #ffffff;
+      text-align: center;
+      padding: 28px 22px;
+    }
+
+    .form-header h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .form-header p {
+      margin-top: 6px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    form {
+      padding: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #06b6d4;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .qr-box {
+      margin: 26px 0;
+      padding: 16px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      text-align: center;
+    }
+
+    .qr-box img {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+
+    .qr-box p {
+      font-size: 14px;
+      color: #334155;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      color: #334155;
+      margin-bottom: 22px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .submit {
+      background: linear-gradient(135deg, #00629B, #06b6d4);
+      color: white;
+    }
+
+    .cancel {
+      background: transparent;
+      border: 2px solid #cbd5e1;
+      color: #334155;
+    }
+
+    @media (max-width: 600px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+  <div class="form-header">
+    <h2>IEEE EDS Chapter</h2>
+    <p>ElectroNova Hackathon 2026 – Team Registration</p>
+  </div>
+
+  <form id="registrationForm">
+
+    <div class="form-group">
+      <label>Registration Category *</label>
+      <select required>
+        <option value="">Select Category</option>
+        <option>UG Student</option>
+        <option>PG Student</option>
+        <option>Diploma Student</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Team Leader First Name *</label>
+        <input type="text" required>
+      </div>
+      <div class="form-group">
+        <label>Team Leader Last Name *</label>
+        <input type="text" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Team Leader Email *</label>
+      <input type="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Team Leader Phone *</label>
+      <input type="tel" placeholder="10-digit mobile number" required>
+    </div>
+
+    <div class="form-group">
+      <label>Institution / College *</label>
+      <input type="text" required>
+    </div>
+
+    <div class="form-group">
+      <label>Preferred Track *</label>
+      <select required>
+        <option value="">Select Track</option>
+        <option>Robotics</option>
+        <option>VLSI & Electron Devices</option>
+        <option>IoT Systems</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Team Size *</label>
+      <select required>
+        <option value="">Select Team Size</option>
+        <option>2 Members</option>
+        <option>3 Members</option>
+        <option>4 Members</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Team Name (Optional)</label>
+      <input type="text">
+    </div>
+
+    <!-- IEEE MEMBERSHIP -->
+    <div class="form-group">
+      <label>Are you an IEEE Member? *</label>
+      <select id="ieeeMember" required>
+        <option value="">Select Option</option>
+        <option value="yes">Yes, IEEE Member</option>
+        <option value="no">No, Not an IEEE Member</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="ieeeIdBox" style="display:none;">
+      <label>IEEE Membership Number *</label>
+      <input type="text" id="ieeeIdInput">
+    </div>
+
+    <!-- FEE STRUCTURE -->
+    <div class="qr-box" style="background:#f8fafc; border:1px solid #cbd5e1; text-align:left;">
+      <p style="font-size:14px; color:#0f172a; line-height:1.7;">
+        <strong>Registration Fee Structure</strong><br><br>
+
+        <strong>Total Registration Fee:</strong>
+        <span id="totalFee">—</span><br><br>
+
+        <strong>Round-1 Registration Fee (Pay Now):</strong>
+        <span id="round1Fee">—</span><br><br>
+
+        <strong>Remaining Fee (After Selection):</strong>
+        <span id="remainingFee">—</span>
+      </p>
+    </div>
+
+    <!-- PAYMENT QR -->
+    <div class="qr-box">
+      <img src="assets/images/payment-qr.png" alt="Round-1 Payment QR Code">
+      <p id="qrFeeText">
+        Select IEEE membership to view payable amount
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label>Upload Payment Receipt (Round-1) *</label>
+      <input type="file" accept=".jpg,.png,.pdf" required>
+    </div>
+
+    <p style="font-size:12px; color:#475569; text-align:center; margin-bottom:14px;">
+      ⚠️ Remaining amount is payable only after selection for the next round.
+    </p>
+
+    <div class="checkbox">
+      <input type="checkbox" required>
+      <span>I agree to the terms & conditions *</span>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="submit">Submit Registration</button>
+      <button type="reset" class="cancel">Cancel</button>
+    </div>
+
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
